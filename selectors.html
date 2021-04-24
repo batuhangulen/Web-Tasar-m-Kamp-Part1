@@ -24,6 +24,27 @@
     <p title="bir açıklama">
         Lorem ipsum <span class="kirmizi">dolar</span> sit amet
     </p>
+    <p>
+        <span style="display:none">Bir Numaralı</span>Arama Motoru: <a href="https://google.com">Google</a>
+    </p>
+    <div style="display:none">
+    Bu element gizlidir
+    </div>
+    <form>
+        <label for="ad"> Ad: </label>
+        <input type="text" name="ad" id="ad"> <br />
+        <label for="soyad"> Soyad: </label>
+        <input type="text" name="soyad" id="soyad"> <br />
+        <label for="sehir"> Şehir: </label>
+        <select name="sehir" id="sehir">
+            <option value="6">Ankara</option>
+            <option value="34">İstanbul</option>
+            <option value="35">İzmir</option>
+        </select>
+        <input type="button" value="gönder">
+    </form>
+    
+    <button onclick="goster()"> Tüm Gizlileri Göster </button>
     <script src="jquery-3.6.0.min.js"></script>
     <script>
         //Element ismi ile seçim: Tüm li'leri seç onlara bir şey yap
@@ -42,6 +63,27 @@
         $("p > .kirmizi").css("background-color","gray");
         //siblings: #oge5'in sonraki kardeşleri
         $("#oge5 ~ *").css("border-left","10px solid red");
+        //content filtre örnekleri
+        //içinde dolor kelimesi geçen li'lerin sonuna D koy
+        $("li:contains('dolor')").append("D");
+        //içinde link içeren paragrafları seç
+        $("p:has(a)").append(" [Link]");
+        function goster()
+        {
+            $(":hidden").show();
+        }
+        //Metin kutularının sağına yıldız koy
+        $("input[type='text']").after(" *");
+        //name attribute'u d harfi ile bitenleri arkaplanını pembe yap
+        $("input[name$='d']").css("background-color", "pink");
+        //form elemanları seçimi
+        $("input:button").val("Kaydet");
+        //child filters
+        //ul'un içindeki li'lerin tek sırada olanların sonuna TEK çift sırada olanların sonuna ÇİFT yaz
+        $("ul > li:nth-child(odd)").append("[TEK]");
+        $("ul > li:nth-child(even)").append("[ÇİFT]");
+        //ul'un içindeki 4.li'nin metnini GAZİ DSC yap
+        $("ul > li:nth-child(4)").text("GAZİ DSC").css("text-align","center").css("padding","1rem").css("border", "3px dashed blue");
     </script>
 </body>
 </html>

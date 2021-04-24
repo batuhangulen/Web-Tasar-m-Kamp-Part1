@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .onemli::after
+        {
+            content: "!";
+            color: red;
+            font-weight: bold;
+            font-size: 200%;
+        }
+        .pembe
+        {
+            background-color: pink;
+        }
+        #cubuk
+        {
+            width:100px;
+            height: 20px;
+            background-color: red;
+        }
+        #ball
+        {
+            width:100px;
+            height:100px;
+            background-color: blue;
+            color:white;
+            position: absolute;
+            top: 300px;
+            left: 200px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%
+        }
+    </style>
+</head>
+<body>
+    <div id="ball"></div>
+    <a href="#" class="onemli" id="link"> Bir Arama Motoru </a> <br>
+    <input id="yor" type="checkbox"> Yoruldum <br>
+    <input type="checkbox"> Öğrendim <br>
+    <button class=pembe onclick="degistir()">Bir Buton</button>
+    Adet: <input type="number" id="adet" value="3">
+    <hr>
+    Genişlik: <input type="range" id="genislik" value="100">
+    <div id="cubuk"></div>
+    <hr>
+    <p id="paragraf" data-aciklama="güzel söz"> 
+        Lorem ipsum dolor sit amet.
+    </p>
+    <script src="jquery-3.6.0.min.js"></script> <br>
+    <script>
+        // attr: bir elementin herhangi bir attiribute'unun değerini almak ve güncellemek için kullanılır
+        $("a").attr("href","https://google.com");//değer atadık
+        $("input:checkbox#yor").prop("checked", true);
+        var id = $("a").attr("id");//değerine eriştik
+        $("body").append("a'nın id'si: " + id);
+        //id'si link olanın sınıflarına önemliyi ekle
+        $("#link").addClass("onemli");
+    function degistir()
+    {
+        $("button").toggleClass("pembe");
+    }
+        //form elemanlarının valuesini değiştir
+        $("#adet").val(33);
+        $("#genislik").on("input",function()
+        {
+            var yenideger = $("#genislik").val();
+            $("#cubuk").width(yenideger).text(yenideger);
+        });
+        var aciklama = $("#paragraf").data("aciklama");
+        $("#paragraf").before("<h2>" + aciklama + "</h2>")
+        //topun içerisinde sayfadaki konumunun pozisyonunu yazdır
+        var konum = $("#ball").offset();
+        $("#ball").html("top: " + konum.top + "<br>" + "left: " + konum.left);
+    </script>
+
+</body>
+</html>
