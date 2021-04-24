@@ -12,5 +12,25 @@
     <script> 
         $("#paragraf").html("Merhaba Dünya!");
     </script>
+<!-- BOŞLUK --> 
+Adet:
+<input type="text" id="adet">
+
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+    $("#adet").val(3);
+</script>
+<!-- BOŞLUK --> 
+<button id="btnGoster">Aşağıdaki metni göster</button>
+<p id="metin" style="display: none">
+    Lorem ipsum dolor sit amet.
+</p>
+
+<script src="jquery-3.6.0.min.js"></script>
+<script>
+    $("#btnGoster").click(function() {
+        $("#metin").toggle();
+    });
+</script>
 </body>
 </html>

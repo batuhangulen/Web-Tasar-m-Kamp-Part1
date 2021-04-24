@@ -1,0 +1,15 @@
+
+# github reposunu oluşturduktan sonra ilk yükleyiş
+git init
+git add .
+git commit -m "jquery giriş"
+git remote add origin https://github.com/batuhangulen/Web-Tasar-m-Kamp-Part1.git
+git push -u origin master
+
+# sonraki yaptığımız değişiklikleri gönderirken
+git add .
+git commit -m "değişikliği anlatan kısa bir ifade"
+git push 
+
+#
+git status diyerek reponuzun durumunu kontrol edebilirsiniz
