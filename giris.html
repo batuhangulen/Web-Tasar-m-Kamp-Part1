@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+   <head>
+      <title> Web Tasarıma Giriş </title>
+   </head>
+   <body>
+      <h1 style="color: red">Merhaba Dünya!</h1>
+      <p style="font-size: 24px;">DSC GAZİ Web Tasarım Kampına Başlıyoruz!</p>
+      <button onclick="alert('Herkese Selam')">Tıkla</button>
+      <button onclick="sariYap()">Arka Planı Sarıya Çevir</button>
+      <button onclick="beyazYap()">Arka Planı Beyaza Çevir</button>
+      <script>
+         function sariYap()
+         {
+            document.querySelector("body").style.backgroundColor="yellow";
+         }
+      </script>
+      <script>
+         function beyazYap()
+         {
+            document.querySelector("body").style.backgroundColor="white";
+         }
+      </script>
+   </body>
+</html>
