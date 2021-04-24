@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- https://oscarotero.com/jquery/ -->
+    <!-- ul>li*10>lorem4 -->
+    <ul>
+        <li title="iki açıklama">Lorem ipsum dolor sit.</li>
+        <li>At odit reiciendis vero.</li>
+        <li class="kirmizi">Sit cupiditate nemo suscipit?</li>
+        <li>Vel explicabo doloremque ab?</li>
+        <li id="oge5">Distinctio debitis repellendus corrupti.</li>
+        <li>Reiciendis dolore magnam sed.</li>
+        <li class="kirmizi">Doloremque praesentium expedita commodi.</li>
+        <li>Libero aut voluptas exercitationem.</li>
+        <li title="bir açıklama">Adipisci ipsum nam impedit.</li>
+        <li>Dolore tempora cum architecto.</li>
+    </ul>
+    <p title="bir açıklama">
+        Lorem ipsum <span class="kirmizi">dolar</span> sit amet
+    </p>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        //Element ismi ile seçim: Tüm li'leri seç onlara bir şey yap
+        $("li").append(" :) ");
+        //Class ismi ile seçim: Sınıfı kırmızı olanların rengini kırmızı yap
+        $(".kirmizi").css("color", "red");
+        //Her şeyi seçme:
+        //$("*").css({"border": "3px solid black","margin": "6px"});
+        //ID ile seçme:
+        $("#oge5").css("text-decoration", "underline");
+        //title attribute'unda bir açıklama olanları seçme:
+        $('[title="bir açıklama"]').css("background-color","yellow");
+        //Çoklu seçim: oge5 id'li ve kirmizi class'lıların başına + koy
+        $("#oge5, .kirmizi").prepend("+ ");
+        //css hiyerarşisi ile seçim: p'nin içindeki kırmızı class'ına sahip olanlar
+        $("p > .kirmizi").css("background-color","gray");
+        //siblings: #oge5'in sonraki kardeşleri
+        $("#oge5 ~ *").css("border-left","10px solid red");
+    </script>
+</body>
+</html>
